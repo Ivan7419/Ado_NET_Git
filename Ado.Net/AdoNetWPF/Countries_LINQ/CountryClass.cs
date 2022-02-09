@@ -12,7 +12,7 @@ namespace Countries_LINQ
         [Column(Name = "Capital")]
         public string Capital { get; set; }
         [Column(Name = "Population")]
-        public string Population { get; set; }
+        public int Population { get; set; }
         [Column(Name = "Area")]
         public int Area { get; set; }
         [Column(Name = "Continent")]
@@ -21,7 +21,7 @@ namespace Countries_LINQ
 
     public class Countries : DataContext
     {
-        const string connectionString = "Data Source=I7-4700;Initial Catalog=Countries_DB;Integrated Security=True";
+        const string connectionString = "Data Source=10.6.1.191;Initial Catalog=Onischenko;Persist Security Info=True;User ID=pv011;Password=147852";
         public Countries() : base(connectionString) { }
         public Countries(string conStr) : base(conStr) { }
         public Table<CountryClass> Country => this.GetTable<CountryClass>();

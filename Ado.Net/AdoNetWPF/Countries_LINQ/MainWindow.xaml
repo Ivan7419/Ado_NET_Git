@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Countries_LINQ"
         mc:Ignorable="d"
-       Title="Страны" Icon="Earth.png" Height="450" Width="810" Background="BurlyWood"  WindowStartupLocation="CenterScreen">
+       Title="Страны" Icon="Earth.png" Height="450" Width="810" Background="DarkSeaGreen"  WindowStartupLocation="CenterScreen">
 
     <Grid>
         <Grid>
@@ -44,7 +44,7 @@
                     <RadioButton x:Name="rbSecondTask" Margin="0,30,0,0" Checked="RbTask_Checked" FontSize="15" FontWeight="Bold" >Задание 2</RadioButton>
                     <ComboBox IsEnabled="False"  x:Name="cbSecondTask" SelectionChanged="CbSecondTask_SelectionChanged">
                         <TextBlock>Страны с буквами a, u</TextBlock>
-                        <TextBlock>Начинаются с а</TextBlock>
+                        <TextBlock>Начинаются с B</TextBlock>
                         <UniformGrid Columns="3">
                             <TextBlock Margin="5">Площадь</TextBlock>
                             <TextBox x:Name="tbScFr"></TextBox>
@@ -56,7 +56,14 @@
                         </UniformGrid>
                     </ComboBox>
                     <RadioButton x:Name="rbThirdTask" Margin="0,30,0,0" Checked="RbTask_Checked" FontSize="15" FontWeight="Bold" >Задание 3</RadioButton>
-                    <ComboBox IsEnabled="False"  x:Name="cbThirdTask" SelectionChanged="CbThirdTask_SelectionChanged"></ComboBox>
+                    <ComboBox IsEnabled="False"  x:Name="cbThirdTask" SelectionChanged="CbThirdTask_SelectionChanged">
+                        <TextBlock>топ 5 по площади</TextBlock>
+                        <TextBlock>Топ 5 по населению</TextBlock>
+                        <TextBlock>Самая большая площадь</TextBlock>
+                        <TextBlock>Самая большая по населению</TextBlock>
+                        <TextBlock>Самая большая в Европе</TextBlock>
+                        <TextBlock>Средняя площадь  Европе</TextBlock>
+                    </ComboBox>
                 </StackPanel>
 
             </Grid>
