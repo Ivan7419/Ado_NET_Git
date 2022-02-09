@@ -31,7 +31,6 @@ namespace Music_Entity
         #region CRUD
         private void Button_Add_Click(object sender, RoutedEventArgs e)
         {
-            dataGrid.ItemsSource = null;
             WindowForAdd wa = new WindowForAdd();
 
             wa.Title = $"Добавление в {"Music"}";
@@ -43,6 +42,7 @@ namespace Music_Entity
                 {
                     db.Tracks.Add(tmp);
                     db.SaveChanges();
+                    dataGrid.ItemsSource = null;
                     dataGrid.ItemsSource = db.Tracks.OrderBy(c => c.Id).ToList();
                 }
             }
@@ -59,6 +59,7 @@ namespace Music_Entity
             {
                 wa.UpdateTrack(ref track);
                 db.SaveChanges();
+                dataGrid.ItemsSource = null;
                 dataGrid.ItemsSource = db.Tracks.OrderBy(c => c.Id).ToList();
             }
         }
