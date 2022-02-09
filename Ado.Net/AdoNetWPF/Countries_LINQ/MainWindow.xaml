@@ -1,0 +1,67 @@
+﻿<Window x:Class="Countries_LINQ.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Countries_LINQ"
+        mc:Ignorable="d"
+       Title="Страны" Icon="Earth.png" Height="450" Width="810" Background="BurlyWood"  WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="615"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+
+                <StackPanel >
+                    <StackPanel Width="600" Margin="10">
+                        <DataGrid x:Name="dataGrid" Panel.ZIndex="1" Height="Auto" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow"
+                                  MaxHeight="388" VerticalScrollBarVisibility="Auto" AutoGenerateColumns="True"
+                                  Margin="2">
+                        </DataGrid>
+                    </StackPanel>
+                </StackPanel>
+
+            </Grid>
+
+            <Grid Grid.Column="1" Margin="0 7 10 0">
+                <StackPanel>
+                    <RadioButton x:Name="rbFirstTask" FontSize="15" FontWeight="Bold" Checked="RbTask_Checked" IsChecked="True">Задание 1 </RadioButton>
+                    <ComboBox IsEnabled="True" SelectedIndex="0" x:Name="cbFirstTask" SelectionChanged="CbFirstTask_SelectionChanged">
+                        <TextBlock>Вся информация</TextBlock>
+                        <TextBlock>Названия стран</TextBlock>
+                        <TextBlock>Названия столиц</TextBlock>
+                        <TextBlock>Страны Европы</TextBlock>
+                        <UniformGrid Columns="3">
+                            <TextBlock Margin="5">Площадь</TextBlock>
+                            <TextBox x:Name="tbScale"></TextBox>
+                            <TextBlock Margin="5">км^2</TextBlock>
+                        </UniformGrid>
+                    </ComboBox>
+                    <RadioButton x:Name="rbSecondTask" Margin="0,30,0,0" Checked="RbTask_Checked" FontSize="15" FontWeight="Bold" >Задание 2</RadioButton>
+                    <ComboBox IsEnabled="False"  x:Name="cbSecondTask" SelectionChanged="CbSecondTask_SelectionChanged">
+                        <TextBlock>Страны с буквами a, u</TextBlock>
+                        <TextBlock>Начинаются с а</TextBlock>
+                        <UniformGrid Columns="3">
+                            <TextBlock Margin="5">Площадь</TextBlock>
+                            <TextBox x:Name="tbScFr"></TextBox>
+                            <TextBox x:Name="tbScTO"></TextBox>
+                        </UniformGrid>
+                        <UniformGrid Columns="2">
+                            <TextBlock Margin="5">Жителей больше</TextBlock>
+                            <TextBox x:Name="tbPeople"></TextBox>
+                        </UniformGrid>
+                    </ComboBox>
+                    <RadioButton x:Name="rbThirdTask" Margin="0,30,0,0" Checked="RbTask_Checked" FontSize="15" FontWeight="Bold" >Задание 3</RadioButton>
+                    <ComboBox IsEnabled="False"  x:Name="cbThirdTask" SelectionChanged="CbThirdTask_SelectionChanged"></ComboBox>
+                </StackPanel>
+
+            </Grid>
+
+        </Grid>
+
+    </Grid>
+</Window>
