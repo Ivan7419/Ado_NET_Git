@@ -17,7 +17,7 @@ namespace Countries_LINQ
     /// </summary>
     public partial class MainWindow : Window
     {
-        private const string ConnectionString = "Data Source=10.6.1.191;Initial Catalog=Onischenko;Persist Security Info=True;User ID=pv011;Password=147852";
+        private const string ConnectionString = "Data Source=I7-4700;Initial Catalog=Countries_DB;Integrated Security=True";
         private DataContext db;
         private Countries countries;
         private bool IsInizalizated = false;

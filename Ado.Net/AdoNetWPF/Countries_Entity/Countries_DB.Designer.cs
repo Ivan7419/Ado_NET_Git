@@ -1,4 +1,4 @@
-﻿// Создание кода T4 для модели "C:\Users\Onyshchenko Max\Source\Repos\Ado.Net\AdoNetWPF\Countries_Entity\Countries_Model.edmx" включено. 
+﻿// Создание кода T4 для модели "C:\Users\Onyshchenko Max\Source\Repos\Ado_NET_Git\Ado.Net\AdoNetWPF\Countries_Entity\Countries_DB.edmx" включено. 
 // Чтобы включить формирование кода прежних версий, измените значение свойства "Стратегия создания кода" конструктора
 // на "Legacy ObjectContext". Это свойство доступно в окне "Свойства", если модель
 // открыта в конструкторе.

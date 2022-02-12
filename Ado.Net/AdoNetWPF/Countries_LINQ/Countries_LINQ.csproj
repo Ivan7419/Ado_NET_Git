@@ -102,9 +102,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="ld.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Icon.png" />
   </ItemGroup>
   <ItemGroup>

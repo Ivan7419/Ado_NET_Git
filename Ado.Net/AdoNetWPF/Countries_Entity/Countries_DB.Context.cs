@@ -13,10 +13,10 @@ namespace Countries_Entity
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Countries_Entities : DbContext
+    public partial class Country_Entities : DbContext
     {
-        public Countries_Entities()
-            : base("name=Countries_Entities")
+        public Country_Entities()
+            : base("name=Country_Entities")
         {
         }
     

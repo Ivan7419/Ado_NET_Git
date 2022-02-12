@@ -17,7 +17,7 @@ namespace Countries_Entity
         public int id { get; set; }
         public string CountryName { get; set; }
         public string Capital { get; set; }
-        public string Population { get; set; }
+        public int Population { get; set; }
         public int Area { get; set; }
         public string Continent { get; set; }
     }

@@ -12,7 +12,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CountryName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Capital" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Population" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Population" Type="int" Nullable="false" />
           <Property Name="Area" Type="int" Nullable="false" />
           <Property Name="Continent" Type="nvarchar" MaxLength="5" Nullable="false" />
         </EntityType>
@@ -31,11 +31,11 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Capital" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Population" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Population" Type="Int32" Nullable="false" />
           <Property Name="Area" Type="Int32" Nullable="false" />
           <Property Name="Continent" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="Countries_Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Country_Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Countries" EntityType="Self.Countries" />
         </EntityContainer>
       </Schema>
@@ -43,7 +43,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище Countries_ModelContainer" CdmEntityContainer="Countries_Entities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Countries_ModelContainer" CdmEntityContainer="Country_Entities">
           <EntitySetMapping Name="Countries">
             <EntityTypeMapping TypeName="Countries_Model.Countries">
               <MappingFragment StoreEntitySet="Countries">
