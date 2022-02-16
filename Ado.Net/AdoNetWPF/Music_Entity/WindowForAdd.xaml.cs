@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 using Music_Entity;
@@ -12,6 +13,7 @@ namespace DZ_03_StationeryFirm
     /// </summary>
     public partial class WindowForAdd : Window
     {
+        #region ADD RECORD
         public WindowForAdd()
         {
             InitializeComponent();
@@ -40,7 +42,9 @@ namespace DZ_03_StationeryFirm
 
             return track;
         }
+        #endregion
 
+        #region UPDATE
         public WindowForAdd(ref Track track)
         {
             InitializeComponent();
@@ -68,6 +72,8 @@ namespace DZ_03_StationeryFirm
             track.Duration = Int32.Parse(tbDuration.Text);
             track.ReleaseDate = DateTime.Parse(tbRD.Text);
         }
+        #endregion
+
 
         private void Button_Ok_Click(object sender, RoutedEventArgs e)
         {

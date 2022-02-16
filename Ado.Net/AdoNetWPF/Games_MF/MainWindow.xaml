@@ -1,0 +1,62 @@
+﻿<Window x:Class="Games_MF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Games_MF"
+        mc:Ignorable="d"
+        Title="MainWindow" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Height="450" Width="800" Background="DarkSeaGreen" Loaded="Window_Loaded">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="447.181"></ColumnDefinition>
+                <ColumnDefinition Width="167.819"/>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" Grid.ColumnSpan="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <StackPanel >
+                    <StackPanel Width="600" Margin="10">
+                        <TextBlock HorizontalAlignment="Center" FontSize="18" FontWeight="Bold">Разработчики</TextBlock>
+                        <DataGrid x:Name="dataGridDevelop" Panel.ZIndex="1" Height="Auto" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow"
+                                  MaxHeight="388" VerticalScrollBarVisibility="Auto" AutoGenerateColumns="True"
+                                  Margin="2" SelectionChanged="DataGridDevelop_OnSelectionChanged">
+                        </DataGrid>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" >
+                    <StackPanel Width="600" Margin="10">
+                        <TextBlock HorizontalAlignment="Center" FontSize="18" FontWeight="Bold">Игры</TextBlock>
+                        <DataGrid x:Name="dataGridGames" Panel.ZIndex="1" Height="Auto" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow"
+                                  MaxHeight="388" VerticalScrollBarVisibility="Auto" AutoGenerateColumns="True"
+                                  Margin="2">
+                        </DataGrid>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Column="2" Margin="0 7 10 0">
+                <StackPanel >
+                    <StackPanel>
+                        <ComboBox x:Name="cbOrder" SelectionChanged="ComboBox_SelectionChanged">
+                            <TextBlock>Developer</TextBlock>
+                            <TextBlock>Game</TextBlock>
+                        </ComboBox>
+                        <Button x:Name="ButtonAddRecord" Height="35" IsEnabled="False" Style="{StaticResource ButtonTemplate}" Margin="0 10 0 0" Content="Добавить" Click="Button_Add_Click" />
+                    </StackPanel>
+                    <Button x:Name="ButtonEditRecord" Height="35" Style="{StaticResource ButtonTemplate}" Margin="0 10 0 0" Content="Изменить" Click="Button_Edit_Click">
+                    </Button>
+                    <Button x:Name="ButtoDeleteRecord" Height="35" Style="{StaticResource ButtonTemplate}" Margin="0 10 0 0" Content="Удалить" Click="Button_Delete_Click"/>
+                </StackPanel>
+
+            </Grid>
+
+        </Grid>
+    </Grid>
+</Window>

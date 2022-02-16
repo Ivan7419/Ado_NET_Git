@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Games_Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Games_ModelStoreContainer">
+    <EntitySet Name="GamesSet" EntityType="Games_Model.Store.GamesSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DeveloperSet" EntityType="Games_Model.Store.DeveloperSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="DeveloperGames" Association="Games_Model.Store.DeveloperGames">
+      <End Role="Developer" EntitySet="DeveloperSet" />
+      <End Role="Games" EntitySet="GamesSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="GamesSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ReleaseDate" Type="datetime" Nullable="false" />
+    <Property Name="Distributor" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Platform" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Developer_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DeveloperSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="DeveloperGames">
+    <End Role="Developer" Type="Games_Model.Store.DeveloperSet" Multiplicity="1" />
+    <End Role="Games" Type="Games_Model.Store.GamesSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Developer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Games">
+        <PropertyRef Name="Developer_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Games_Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="Games_ModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="GamesSet" EntityType="Games_Model.Games" />
+          <EntitySet Name="DeveloperSet" EntityType="Games_Model.Developer" />
+          <AssociationSet Name="DeveloperGames" Association="Games_Model.DeveloperGames">
+            <End Role="Developer" EntitySet="DeveloperSet" />
+            <End Role="Games" EntitySet="GamesSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Games">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="ReleaseDate" Type="DateTime" Nullable="false" />
+          <Property Name="Distributor" Type="String" Nullable="false" />
+          <Property Name="Platform" Type="String" Nullable="false" />
+          <NavigationProperty Name="Developer" Relationship="Games_Model.DeveloperGames" FromRole="Games" ToRole="Developer" />
+        </EntityType>
+        <EntityType Name="Developer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <NavigationProperty Name="GamesCollection" Relationship="Games_Model.DeveloperGames" FromRole="Developer" ToRole="Games" />
+        </EntityType>
+        <Association Name="DeveloperGames">
+          <End Type="Games_Model.Developer" Role="Developer" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Games_Model.Games" Role="Games" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Games_ModelStoreContainer" CdmEntityContainer="Games_ModelContainer">
+    <EntitySetMapping Name="GamesSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Games_Model.Games)">
+        <MappingFragment StoreEntitySet="GamesSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ReleaseDate" ColumnName="ReleaseDate" />
+          <ScalarProperty Name="Distributor" ColumnName="Distributor" />
+          <ScalarProperty Name="Platform" ColumnName="Platform" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DeveloperSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Games_Model.Developer)">
+        <MappingFragment StoreEntitySet="DeveloperSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="DeveloperGames" TypeName="Games_Model.DeveloperGames" StoreEntitySet="GamesSet">
+      <EndProperty Name="Developer">
+        <ScalarProperty Name="Id" ColumnName="Developer_Id" />
+      </EndProperty>
+      <EndProperty Name="Games">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

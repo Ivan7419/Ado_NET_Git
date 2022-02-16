@@ -33,7 +33,7 @@ namespace Music_Entity
         {
             WindowForAdd wa = new WindowForAdd();
 
-            wa.Title = $"Добавление в {"Music"}";
+            wa.Title = "Добавление в Music";
 
             if (wa.ShowDialog() == true)
             {
