@@ -96,15 +96,8 @@ namespace Games_MF
             }
             else
             {
-                var tmp = (dataGridGames.SelectedItem as Games);
-                Games game = new Games
-                {
-                    Name = tmp.Name,
-                    Platform = tmp.Platform,
-                    Distributor = tmp.Distributor,
-                    Developer = tmp.Developer,
-                    ReleaseDate = tmp.ReleaseDate
-                };
+                var tmp = dataGridGames.SelectedCells[0].Item.ToString();
+                Games game = db.GamesCollection.Where(g => g.Id.ToString() == tmp).FirstOrDefault();
                 if (game != null)
                 {
                     if (MessageBox.Show("Удалить запись?", "", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No) return;

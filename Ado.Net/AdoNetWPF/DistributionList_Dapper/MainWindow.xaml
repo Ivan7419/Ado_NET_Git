@@ -1,0 +1,46 @@
+﻿<Window x:Class="DistributionList_Dapper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DistributionList_Dapper"
+        mc:Ignorable="d"
+        Title="MainWindow" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Height="450" Width="800" Background="DarkSeaGreen">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="447.181"></ColumnDefinition>
+                <ColumnDefinition Width="167.819"/>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" Grid.ColumnSpan="2">
+
+                <StackPanel >
+                    <StackPanel Width="600" Margin="10">
+                        <DataGrid x:Name="dataGrid" Panel.ZIndex="1" Height="Auto" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow"
+                                  MaxHeight="388" VerticalScrollBarVisibility="Auto" AutoGenerateColumns="True"
+                                  Margin="2">
+                        </DataGrid>
+                    </StackPanel>
+                </StackPanel>
+
+            </Grid>
+
+            <Grid Grid.Column="2" Margin="0 7 10 0">
+                <StackPanel >
+                    <ComboBox x:Name="cbTasks" SelectionChanged="ComboBox_SelectionChanged">
+                        <TextBlock>Отображение всех покупателей</TextBlock>
+                        <TextBlock>Отображение email всех покупателей</TextBlock>
+                        <TextBlock>Отображение списка разделов</TextBlock>
+                        <TextBlock>Отображение списка акционных товаров</TextBlock>
+                        <TextBlock> Отображение всех городов</TextBlock>
+                        <TextBlock> Отображение всех стран</TextBlock>
+                    </ComboBox>
+                </StackPanel>
+
+            </Grid>
+
+        </Grid>
+    </Grid>
+</Window>
